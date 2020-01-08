@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## EdgeConnect: Generative Image Inpainting with Adversarial Edge Learning
 [ArXiv](https://arxiv.org/abs/1901.00212) | [BibTex](#citation)
 ### Introduction:
@@ -180,3 +181,6 @@ If you use this code for your research, please cite our paper <a href="https://a
   year={2019},
 }
 ```
+=======
+# edge-connect-debug
+>>>>>>> d7ed558f258ddd775facac1fa9e39b9209b63f6c
