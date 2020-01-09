@@ -28,6 +28,9 @@ class Dataset(torch.utils.data.Dataset):
         self.mask = config.MASK
         self.nms = config.NMS
 
+        ## TEST
+        # print("self.mask_data : " + self.mask_data)
+
         # in test mode, there's a one-to-one relationship between mask and image
         # masks are loaded non random
         if config.MODE == 2:
@@ -79,6 +82,10 @@ class Dataset(torch.utils.data.Dataset):
             img_gray = img_gray[:, ::-1, ...]
             edge = edge[:, ::-1, ...]
             mask = mask[:, ::-1, ...]
+
+        print("img : " + str(img.shape))
+        print("edge : " + str(edge.shape))
+        print("mask : " + str(mask.shape))
 
         return self.to_tensor(img), self.to_tensor(img_gray), self.to_tensor(edge), self.to_tensor(mask)
 

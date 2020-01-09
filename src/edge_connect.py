@@ -82,6 +82,7 @@ class EdgeConnect():
             shuffle=True
         )
 
+
         epoch = 0
         keep_training = True
         model = self.config.MODEL
@@ -97,15 +98,14 @@ class EdgeConnect():
             print('\n\nTraining epoch: %d' % epoch)
 
             progbar = Progbar(total, width=20, stateful_metrics=['epoch', 'iter'])
-
             for items in train_loader:
                 self.edge_model.train()
                 self.inpaint_model.train()
+            
                 
-                #DEBUG
-                print(self.train_dataset)
 
                 images, images_gray, edges, masks = self.cuda(*items)
+
 
                 # edge model
                 if model == 1:
@@ -285,7 +285,7 @@ class EdgeConnect():
 
                 outputs, gen_loss, dis_loss, logs = self.inpaint_model.process(images, outputs.detach(), masks)
                 outputs_merged = (outputs * masks) + (images * (1 - masks))
-
+ 
                 # metrics
                 psnr = self.psnr(self.postprocess(images), self.postprocess(outputs_merged))
                 mae = (torch.sum(torch.abs(images - outputs_merged)) / torch.sum(images)).float()
@@ -415,6 +415,7 @@ class EdgeConnect():
             self.postprocess(outputs_merged),
             img_per_row = image_per_row
         )
+
 
 
         path = os.path.join(self.samples_path, self.model_name)

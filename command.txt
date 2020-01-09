@@ -1,0 +1,23 @@
+
+python train.py --model 1 --checkpoints ./checkpoints/celebhd
+python train.py --model 2 --checkpoints ./checkpoints/paris
+
+python ./scripts/flist.py --path /home/zzoon/research/model_test/datasets/celeb_hd/celeb_hd_train --output ./datasets/celeb_hd_train.flist
+python ./scripts/flist.py --path /home/zzoon/research/model_test/datasets/celeb_hd/celeb_hd_val --output ./datasets/celeb_hd_val.flist
+python ./scripts/flist.py --path /home/zzoon/research/model_test/datasets/celeb_hd/celeb_hd_test --output ./datasets/celeb_hd_test.flist
+
+python ./scripts/flist.py --path /home/zzoon/research/model_test/datasets/celeb_hd/mask_train --output ./datasets/mask_train.flist
+python ./scripts/flist.py --path /home/zzoon/research/model_test/datasets/celeb_hd/mask_val --output ./datasets/mask_val.flist
+python ./scripts/flist.py --path /home/zzoon/research/model_test/datasets/celeb_hd/mask_test --output ./datasets/mask_test.flist
+
+TRAIN_FLIST: /home/zzoon/research/model_test/edge-connect/datasets/celeb_hd_train.flist
+VAL_FLIST: /home/zzoon/research/model_test/edge-connect/datasets/celeb_hd_val.flist
+TEST_FLIST : /home/zzoon/research/model_test/edge-connect/datasets/celeb_hd_test.flist
+
+TRAIN_EDGE_FLIST: /home/zzoon/research/model_test/edge-connect/datasets/celeba_edges_train.flist
+VAL_EDGE_FLIST: /home/zzoon/research/model_test/edge-connect/datasets/celeba_edges_val.flist
+TEST_EDGE_FLIST: /home/zzoon/research/model_test/edge-connect/datasets/celeba_edges_test.flist
+
+TRAIN_MASK_FLIST: /home/zzoon/research/model_test/edge-connect/datasets/mask_train.flist
+VAL_MASK_FLIST: /home/zzoon/research/model_test/edge-connect/datasets/mask_val.flist
+TEST_MASK_FLIST: /home/zzoon/research/model_test/edge-connect/datasets/mask_test.flist
